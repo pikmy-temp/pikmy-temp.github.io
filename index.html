@@ -1,2 +1,26 @@
-<h1>Pikmy</h1>
-test
+---
+title: Pikmy Blog
+layout: default
+---
+
+<h1 class="screen-reader-text">Pikmy Blog Posts</h1>
+<div id="loop-container" class="loop-container">
+  {% for post in site.posts %}
+  <div class="post-67 post type-post status-publish format-standard hentry category-information entry">
+    <article>
+      <div class='post-header'>
+        <h2 class='post-title'>
+          <a href="{{ base }}{{ post.url }}">{{ post.title }}</a>
+        </h2>
+
+        <div class="post-meta">
+           <p>Published {{ post.date | date_to_long_string }} by {{ post.author }}</p>
+        </div>
+      </div>
+      <div class="post-content">
+        {{ post.excerpt }}
+      </div>
+    </article>
+  </div>
+  {% endfor %}
+</div>
